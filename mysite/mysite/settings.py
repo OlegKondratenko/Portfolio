@@ -25,7 +25,10 @@ SECRET_KEY = 'inju6nj3-o&$1_h+ni)qm+*_vk3z)d(0&^df%_6mlb8vmb8!h^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cybmed.pythonanywhere.com',]
+ALLOWED_HOSTS = [
+    'cybmed.pythonanywhere.com',
+     '127.0.0.1',
+]
 
 
 
@@ -49,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
