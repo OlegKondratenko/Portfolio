@@ -1,21 +1,16 @@
-{% extends 'blog/layout.html'%}
-
+{% extends 'blog/layout.html' %}
 
 {% block body %}
-
-
-    {%if post.published.date%}
     <div class="post">
-        <div class="date">
-        <p>published: {{ post.published_date }}</p>
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a class="btn btn-warning" href="{% url 'post_edit' pk=post.pk %}">Edit post<span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaksbr }}</p>
     </div>
-    {% endif%}
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.text|linebreaksbr }}</p>
-</div>
-
-                    
-
-        
-
-{%endblock%}
+{% endblock %}
